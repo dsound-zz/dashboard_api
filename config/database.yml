@@ -1,23 +1,25 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode 
   pool: <%= ENV["DB_POOL"] || 5  %>
-  database: <%= ENV['DB_NAME'] || 'tml_dashboard_api_development' %>
-  username: <%= ENV['DB_USER'] || 'root' %>
+  timeout: <%= ENV['DB_TIMEOUT'] || 5000 %>
+  database: <%= ENV['DB_NAME'] || 'dashboard-dev' %>
+  username: <%= ENV['DB_USER'] || 'dashboard-dev' %>
   password: <%= ENV['DB_PASS'] %>
   host: <%= ENV["DB_HOST"] %>
+
   url: <%= ENV['DATABASE_URL'] %> # takes higher precedence than other settings
   reconnect: true
 
 development:
   <<: *default
-  database: <%= ENV['DB_NAME'] || 'tml_dashboard_api_development' %>
+  database: <%= ENV['DB_NAME'] || 'dashboard-dev' %>
 
 test:
   <<: *default
-  database: tml_dashboard_api_test
+  database: dashboard-dev
 
 production:
   <<: *default
-  database: tml_dashboard_api_production
+  database: dashboard-dev
   url: <%= ENV['DATABASE_URL'] %>
