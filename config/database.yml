@@ -1,10 +1,10 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode 
+  adapter: mysql2
+  encoding: utf8mb4 
   pool: <%= ENV["DB_POOL"] || 5  %>
   timeout: <%= ENV['DB_TIMEOUT'] || 5000 %>
-  database: <%= ENV['DB_NAME'] || 'dashboard-dev' %>
-  username: <%= ENV['DB_USER'] || 'dashboard-dev' %>
+  database: <%= ENV['DB_NAME'] || 'dashboard' %>
+  username: <%= ENV['DB_USER'] || 'dashboard' %>
   password: <%= ENV['DB_PASS'] %>
   host: <%= ENV["DB_HOST"] %>
 
@@ -13,13 +13,13 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DB_NAME'] || 'dashboard-dev' %>
+  database: <%= ENV['DB_NAME'] || 'dashboard' %>
 
 test:
   <<: *default
-  database: dashboard-dev
+  database: dashboard
 
 production:
   <<: *default
-  database: dashboard-dev
+  database: dashboard
   url: <%= ENV['DATABASE_URL'] %>

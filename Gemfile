@@ -5,7 +5,7 @@ gem "jets"
 
 # Include mysql2 gem if you are using ActiveRecord, remove next line
 # and config/database.yml file if you are not
-gem "pg"
+gem "mysql2"
 
 gem "dynomite"
 
@@ -13,7 +13,6 @@ gem 'active_model_serializers'
 
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
-gem 'bcrypt'
 
 gem 'jwt'
 
