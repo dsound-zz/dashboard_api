@@ -7,15 +7,12 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
-#
+#s
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_032548) do
+ActiveRecord::Schema.define(version: 0) do
 
-  # These are extensions that must be enabled in order to support this database
-  # enable_extension "plpgsql"
-
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "entry"
     t.boolean "is_public", default: true
     t.bigint "user_id"
@@ -26,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_032548) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
-  create_table "outages", force: :cascade do |t|
+  create_table "outages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
     t.boolean "is_recurring", default: false
@@ -38,14 +35,14 @@ ActiveRecord::Schema.define(version: 2020_05_20_032548) do
     t.index ["service_id"], name: "index_outages_on_service_id"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "services", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.boolean "is_down", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "username", null: false
     t.string "password_digest", null: false
     t.boolean "is_admin", default: false

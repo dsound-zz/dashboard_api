@@ -3,12 +3,12 @@ default: &default
   encoding: utf8mb4 
   pool: <%= ENV["DB_POOL"] || 5  %>
   timeout: <%= ENV['DB_TIMEOUT'] || 5000 %>
-  database: <%= ENV['DB_NAME'] || 'dashboard' %>
-  username: <%= ENV['DB_USER'] || 'dashboard' %>
-  password: <%= ENV['DB_PASS'] %>
-  host: <%= ENV["DB_HOST"] %>
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_DB_USER'] %>
+  password: <%= ENV['RDS_DB_PASS'] %>
+  host: <%= ENV['RDS_DB_HOST'] %>
 
-  url: <%= ENV['DATABASE_URL'] %> # takes higher precedence than other settings
+  # url: <%= ENV['DATABASE_URL'] %> # takes higher precedence than other settings
   reconnect: true
 
 development:

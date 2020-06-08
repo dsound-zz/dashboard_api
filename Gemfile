@@ -13,7 +13,7 @@ gem 'active_model_serializers'
 
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
-
+gem "bcrypt" 
 gem 'jwt'
 
 # development and test groups are not bundled as part of the deployment
