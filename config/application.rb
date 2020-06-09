@@ -1,7 +1,8 @@
 Jets.application.configure do
   config.project_name = "tml_dashboard_api"
   config.mode = "api"
-
+  require 'dotenv/load'
+  
   config.prewarm.enable = true # default is true
   # config.prewarm.rate = '30 minutes' # default is '30 minutes'
   # config.prewarm.concurrency = 2 # default is 2
